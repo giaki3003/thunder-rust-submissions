@@ -20,7 +20,7 @@
 | -------------------------- | ------ | ---------- | ------------ |
 | Bench (CI)    | 29.13s | **23.34s** | **‑19.8%**  |
 
-My local Ryzen5900HX shows \~40% wall‑time reduction (~11s → ~7s).
+My local Ryzen5900HX shows \~30% wall‑time reduction (~10s → ~7s).
 
 ### Code map
 
