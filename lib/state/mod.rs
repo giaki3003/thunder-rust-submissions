@@ -529,13 +529,7 @@ impl State {
         body: &Body,
         prevalidated: PrevalidatedBlock,
     ) -> Result<MerkleRoot, Error> {
-        block::connect_prevalidated(
-            self,
-            rwtxn,
-            header,
-            body,
-            prevalidated,
-        )
+        block::connect_prevalidated(self, rwtxn, header, body, prevalidated)
     }
 
     pub fn apply_block(
@@ -545,12 +539,7 @@ impl State {
         body: &Body,
     ) -> Result<(), Error> {
         let prevalidated = self.prevalidate_block(rwtxn, header, body)?;
-        self.connect_prevalidated_block(
-            rwtxn,
-            header,
-            body,
-            prevalidated,
-        )?;
+        self.connect_prevalidated_block(rwtxn, header, body, prevalidated)?;
         Ok(())
     }
 

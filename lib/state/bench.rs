@@ -624,11 +624,9 @@ fn connect_blocks(
         let start = std::time::Instant::now();
         let mut rwtxn = setup.env.write_txn()?;
         for block in &blocks {
-            setup.state.apply_block(
-                &mut rwtxn,
-                &block.header,
-                &block.body,
-            )?;
+            setup
+                .state
+                .apply_block(&mut rwtxn, &block.header, &block.body)?;
         }
         rwtxn.commit()?;
         res += start.elapsed();

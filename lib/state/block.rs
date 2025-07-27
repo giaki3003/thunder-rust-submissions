@@ -343,7 +343,7 @@ pub fn connect_prevalidated(
         .unwrap_or_default();
 
     let mut utxo_deletes = BTreeMap::new();
-    let mut stxo_puts = BTreeMap::new();  
+    let mut stxo_puts = BTreeMap::new();
     let mut utxo_puts = BTreeMap::new();
 
     for (vout, output) in body.coinbase.iter().enumerate() {
@@ -360,7 +360,6 @@ pub fn connect_prevalidated(
         for (vin, (outpoint, _utxo_hash)) in
             filled_transaction.transaction.inputs.iter().enumerate()
         {
-
             let spent_utxo = &filled_transaction.spent_utxos[vin];
             let spent_output = SpentOutput {
                 output: spent_utxo.clone(),
