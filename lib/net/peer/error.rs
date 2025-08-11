@@ -120,6 +120,7 @@ pub(in crate::net::peer) mod channel_pool {
     }
 
     #[derive(transitive::Transitive, Debug, Error)]
+    #[allow(clippy::duplicated_attributes)]
     #[transitive(
         from(super::connection::SendHeartbeat, super::connection::SendMessage),
         from(super::connection::SendRequest, super::connection::SendMessage)
@@ -168,6 +169,7 @@ pub(in crate::net::peer) mod request_queue {
     pub struct SendRequest;
 
     #[derive(transitive::Transitive, Debug, Error)]
+    #[allow(clippy::duplicated_attributes)]
     #[transitive(
         from(super::channel_pool::SendMessage, super::channel_pool::Error),
         from(

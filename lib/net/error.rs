@@ -14,6 +14,7 @@ pub struct AlreadyConnected(pub SocketAddr);
 /// Another connection can be accepted after a non-fatal error
 #[derive(transitive::Transitive)]
 #[fatality(splitable)]
+#[allow(clippy::duplicated_attributes)]
 #[transitive(
     from(sneed::db::error::Put, sneed::DbError),
     from(sneed::DbError, sneed::Error),
