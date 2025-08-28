@@ -1,6 +1,8 @@
 use std::env;
 use std::path::PathBuf;
 
+extern crate link_cplusplus;
+
 fn main() {
     let out_dir = PathBuf::from(env::var("OUT_DIR").unwrap());
     let manifest_dir = PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap());
@@ -179,6 +181,10 @@ extern "C" {{
     println!("cargo:rustc-link-lib=cudart");
     println!("cargo:rustc-link-lib=cuda");
     println!("cargo:rustc-link-search=native={}", cuda_lib);
+
+    // Add C++ runtime as needed
+    println!("cargo:rustc-link-arg=-Wl,-Bdynamic");
+    println!("cargo:rustc-link-arg=-Wl,--no-as-needed");
 }
 
 fn generate_bindings(out_dir: &PathBuf) {
